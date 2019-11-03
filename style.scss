@@ -1,0 +1,93 @@
+$light-color: #FFC0CB;
+$dark-color: #DB7093;
+$light-gradient-up: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFC0CB), to(#FFA4B4));
+$dark-gradient-up: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#DB7093), to(#BF5C7D));
+$light-gradient-down: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#FFC0CB), to(#FFA4B4));
+$dark-gradient-down: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#DB7093), to(#BF5C7D));
+
+.wrapper {
+    margin: 0 auto;
+    width: 850px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    #text {
+        margin: 20px 0;
+        width: 100%;
+    }
+}
+
+.keyboard {
+    user-select: none;
+
+    .row {
+        display: flex;
+        margin-bottom: 5px;
+
+        .Backspace, 
+        .Tab,
+        .Delete,
+        .CapsLock,
+        .Enter,
+        .ShiftLeft,
+        .ShiftRight,
+        .Space {
+            flex-grow: 2;
+            background: $dark-gradient-up;
+        } 
+
+        .ArrowUp,
+        .ControlLeft,
+        .MetaLeft,
+        .AltLeft,
+        .Space,
+        .AltRight,
+        .ArrowLeft,
+        .ArrowDown,
+        .ArrowRight,
+        .ControlRight {
+            background: $dark-gradient-up;
+        } 
+    }
+
+    .key {
+        margin-left: 5px;
+        padding: 8px;
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+        line-height: 2rem;
+        border-radius: 5px;
+        background: $light-gradient-up;
+        cursor: pointer;
+    }
+
+    .key:hover {
+        background: darken($light-color, 6%);
+    }
+
+    .ArrowUp:hover,
+    .ControlLeft:hover,
+    .MetaLeft:hover,
+    .AltLeft:hover,
+    .AltRight:hover,
+    .ArrowLeft:hover,
+    .ArrowDown:hover,
+    .ArrowRight:hover,
+    .ControlRight:hover,
+    .Backspace:hover, 
+    .Tab:hover,
+    .Delete:hover,
+    .CapsLock:hover,
+    .Enter:hover,
+    .ShiftLeft:hover,
+    .ShiftRight:hover,
+    .Space:hover {
+        background: darken($dark-color, 6%);
+    } 
+
+    .hide {
+        display: none;
+    }
+}

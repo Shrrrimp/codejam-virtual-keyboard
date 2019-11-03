@@ -1,0 +1,94 @@
+.wrapper {
+  margin: 0 auto;
+  width: 850px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wrapper #text {
+  margin: 20px 0;
+  width: 100%;
+}
+
+.keyboard {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.keyboard .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.keyboard .row .Backspace,
+.keyboard .row .Tab,
+.keyboard .row .Delete,
+.keyboard .row .CapsLock,
+.keyboard .row .Enter,
+.keyboard .row .ShiftLeft,
+.keyboard .row .ShiftRight,
+.keyboard .row .Space {
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#DB7093), to(#BF5C7D));
+}
+
+.keyboard .row .ArrowUp,
+.keyboard .row .ControlLeft,
+.keyboard .row .MetaLeft,
+.keyboard .row .AltLeft,
+.keyboard .row .Space,
+.keyboard .row .AltRight,
+.keyboard .row .ArrowLeft,
+.keyboard .row .ArrowDown,
+.keyboard .row .ArrowRight,
+.keyboard .row .ControlRight {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#DB7093), to(#BF5C7D));
+}
+
+.keyboard .key {
+  margin-left: 5px;
+  padding: 8px;
+  width: 35px;
+  height: 35px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 2rem;
+  border-radius: 5px;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFC0CB), to(#FFA4B4));
+  cursor: pointer;
+}
+
+.keyboard .key:hover {
+  background: #ffa1b2;
+}
+
+.keyboard .ArrowUp:hover,
+.keyboard .ControlLeft:hover,
+.keyboard .MetaLeft:hover,
+.keyboard .AltLeft:hover,
+.keyboard .AltRight:hover,
+.keyboard .ArrowLeft:hover,
+.keyboard .ArrowDown:hover,
+.keyboard .ArrowRight:hover,
+.keyboard .ControlRight:hover,
+.keyboard .Backspace:hover,
+.keyboard .Tab:hover,
+.keyboard .Delete:hover,
+.keyboard .CapsLock:hover,
+.keyboard .Enter:hover,
+.keyboard .ShiftLeft:hover,
+.keyboard .ShiftRight:hover,
+.keyboard .Space:hover {
+  background: #d55881;
+}
+
+.keyboard .hide {
+  display: none;
+}
+/*# sourceMappingURL=style.css.map */

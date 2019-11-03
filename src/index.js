@@ -1,6 +1,6 @@
 const keyRow1 = [
   {
-    class: 'Backquote',
+    class: ['Backquote'],
     eng: {
       shiftUp: '`',
       shiftDown: '~',
@@ -11,7 +11,7 @@ const keyRow1 = [
     },
   },
   {
-    class: 'Digit1',
+    class: ['Digit1'],
     eng: {
       shiftUp: '1',
       shiftDown: '!',
@@ -22,7 +22,7 @@ const keyRow1 = [
     },
   },
   {
-    class: 'Digit2',
+    class: ['Digit2'],
     eng: {
       shiftUp: '2',
       shiftDown: '@',
@@ -33,7 +33,7 @@ const keyRow1 = [
     },
   },
   {
-    class: 'Digit3',
+    class: ['Digit3'],
     eng: {
       shiftUp: '3',
       shiftDown: '#',
@@ -44,7 +44,7 @@ const keyRow1 = [
     },
   },
   {
-    class: 'Digit4',
+    class: ['Digit4'],
     eng: {
       shiftUp: '4',
       shiftDown: '$',
@@ -55,7 +55,7 @@ const keyRow1 = [
     },
   },
   {
-    class: 'Digit5',
+    class: ['Digit5'],
     eng: {
       shiftUp: '5',
       shiftDown: '%',
@@ -66,7 +66,7 @@ const keyRow1 = [
     },
   },
   {
-    class: 'Digit6',
+    class: ['Digit6'],
     eng: {
       shiftUp: '6',
       shiftDown: '^',
@@ -77,7 +77,7 @@ const keyRow1 = [
     },
   },
   {
-    class: 'Digit7',
+    class: ['Digit7'],
     eng: {
       shiftUp: '7',
       shiftDown: '&',
@@ -88,7 +88,7 @@ const keyRow1 = [
     },
   },
   {
-    class: 'Digit8',
+    class: ['Digit8'],
     eng: {
       shiftUp: '8',
       shiftDown: '*',
@@ -99,7 +99,7 @@ const keyRow1 = [
     },
   },
   {
-    class: 'Digit9',
+    class: ['Digit9'],
     eng: {
       shiftUp: '9',
       shiftDown: '(',
@@ -110,7 +110,7 @@ const keyRow1 = [
     },
   },
   {
-    class: 'Digit0',
+    class: ['Digit0'],
     eng: {
       shiftUp: '0',
       shiftDown: ')',
@@ -121,7 +121,7 @@ const keyRow1 = [
     },
   },
   {
-    class: 'Minus',
+    class: ['Minus'],
     eng: {
       shiftUp: '-',
       shiftDown: '_',
@@ -132,7 +132,7 @@ const keyRow1 = [
     },
   },
   {
-    class: 'Equal',
+    class: ['Equal'],
     eng: {
       shiftUp: '=',
       shiftDown: '+',
@@ -143,7 +143,7 @@ const keyRow1 = [
     },
   },
   {
-    class: 'Backspace',
+    class: ['Backspace', 'special'],
     eng: {
       shiftUp: 'Backspace',
       shiftDown: 'Backspace',
@@ -157,7 +157,7 @@ const keyRow1 = [
 
 const keyRow2 = [
   {
-    class: 'Tab',
+    class: ['Tab', 'special'],
     eng: {
       shiftUp: 'Tab',
       shiftDown: 'Tab',
@@ -168,7 +168,7 @@ const keyRow2 = [
     },
   },
   {
-    class: 'KeyQ',
+    class: ['KeyQ'],
     eng: {
       shiftUp: 'q',
       shiftDown: 'Q',
@@ -179,7 +179,7 @@ const keyRow2 = [
     },
   },
   {
-    class: 'KeyW',
+    class: ['KeyW'],
     eng: {
       shiftUp: 'w',
       shiftDown: 'W',
@@ -190,7 +190,7 @@ const keyRow2 = [
     },
   },
   {
-    class: 'KeyE',
+    class: ['KeyE'],
     eng: {
       shiftUp: 'e',
       shiftDown: 'E',
@@ -201,7 +201,7 @@ const keyRow2 = [
     },
   },
   {
-    class: 'KeyR',
+    class: ['KeyR'],
     eng: {
       shiftUp: 'r',
       shiftDown: 'R',
@@ -212,7 +212,7 @@ const keyRow2 = [
     },
   },
   {
-    class: 'KeyT',
+    class: ['KeyT'],
     eng: {
       shiftUp: 't',
       shiftDown: 'T',
@@ -223,7 +223,7 @@ const keyRow2 = [
     },
   },
   {
-    class: 'KeyY',
+    class: ['KeyY'],
     eng: {
       shiftUp: 'y',
       shiftDown: 'Y',
@@ -234,7 +234,7 @@ const keyRow2 = [
     },
   },
   {
-    class: 'KeyU',
+    class: ['KeyU'],
     eng: {
       shiftUp: 'u',
       shiftDown: 'U',
@@ -245,7 +245,7 @@ const keyRow2 = [
     },
   },
   {
-    class: 'KeyI',
+    class: ['KeyI'],
     eng: {
       shiftUp: 'i',
       shiftDown: 'I',
@@ -256,7 +256,7 @@ const keyRow2 = [
     },
   },
   {
-    class: 'KeyO',
+    class: ['KeyO'],
     eng: {
       shiftUp: 'o',
       shiftDown: 'O',
@@ -267,7 +267,7 @@ const keyRow2 = [
     },
   },
   {
-    class: 'KeyP',
+    class: ['KeyP'],
     eng: {
       shiftUp: 'p',
       shiftDown: 'P',
@@ -278,7 +278,7 @@ const keyRow2 = [
     },
   },
   {
-    class: 'BracketLeft',
+    class: ['BracketLeft'],
     eng: {
       shiftUp: '[',
       shiftDown: '{',
@@ -289,7 +289,7 @@ const keyRow2 = [
     },
   },
   {
-    class: 'BracketRight',
+    class: ['BracketRight'],
     eng: {
       shiftUp: ']',
       shiftDown: '}',
@@ -300,7 +300,7 @@ const keyRow2 = [
     },
   },
   {
-    class: 'Delete',
+    class: ['Delete', 'special'],
     eng: {
       shiftUp: 'Delete',
       shiftDown: 'Delete',
@@ -314,7 +314,7 @@ const keyRow2 = [
 
 const keyRow3 = [
   {
-    class: 'CapsLock',
+    class: ['CapsLock', 'special'],
     eng: {
       shiftUp: 'CapsLock',
       shiftDown: 'CapsLock',
@@ -325,7 +325,7 @@ const keyRow3 = [
     },
   },
   {
-    class: 'KeyA',
+    class: ['KeyA'],
     eng: {
       shiftUp: 'a',
       shiftDown: 'A',
@@ -336,7 +336,7 @@ const keyRow3 = [
     },
   },
   {
-    class: 'KeyS',
+    class: ['KeyS'],
     eng: {
       shiftUp: 's',
       shiftDown: 'S',
@@ -347,7 +347,7 @@ const keyRow3 = [
     },
   },
   {
-    class: 'KeyD',
+    class: ['KeyD'],
     eng: {
       shiftUp: 'd',
       shiftDown: 'D',
@@ -358,7 +358,7 @@ const keyRow3 = [
     },
   },
   {
-    class: 'KeyF',
+    class: ['KeyF'],
     eng: {
       shiftUp: 'f',
       shiftDown: 'F',
@@ -369,7 +369,7 @@ const keyRow3 = [
     },
   },
   {
-    class: 'KeyG',
+    class: ['KeyG'],
     eng: {
       shiftUp: 'g',
       shiftDown: 'G',
@@ -380,7 +380,7 @@ const keyRow3 = [
     },
   },
   {
-    class: 'KeyH',
+    class: ['KeyH'],
     eng: {
       shiftUp: 'h',
       shiftDown: 'H',
@@ -391,7 +391,7 @@ const keyRow3 = [
     },
   },
   {
-    class: 'KeyJ',
+    class: ['KeyJ'],
     eng: {
       shiftUp: 'j',
       shiftDown: 'J',
@@ -402,7 +402,7 @@ const keyRow3 = [
     },
   },
   {
-    class: 'KeyK',
+    class: ['KeyK'],
     eng: {
       shiftUp: 'k',
       shiftDown: 'K',
@@ -413,7 +413,7 @@ const keyRow3 = [
     },
   },
   {
-    class: 'KeyL',
+    class: ['KeyL'],
     eng: {
       shiftUp: 'l',
       shiftDown: 'L',
@@ -424,7 +424,7 @@ const keyRow3 = [
     },
   },
   {
-    class: 'Semicolon',
+    class: ['Semicolon'],
     eng: {
       shiftUp: ';',
       shiftDown: ':',
@@ -435,7 +435,7 @@ const keyRow3 = [
     },
   },
   {
-    class: 'Quote',
+    class: ['Quote'],
     eng: {
       shiftUp: "'",
       shiftDown: '"',
@@ -446,7 +446,7 @@ const keyRow3 = [
     },
   },
   {
-    class: 'Enter',
+    class: ['Enter', 'special'],
     eng: {
       shiftUp: 'Enter',
       shiftDown: 'Enter',
@@ -460,7 +460,7 @@ const keyRow3 = [
 
 const keyRow4 = [
   {
-    class: 'ShiftLeft',
+    class: ['ShiftLeft', 'special'],
     eng: {
       shiftUp: 'Shift',
       shiftDown: 'Shift',
@@ -471,7 +471,7 @@ const keyRow4 = [
     },
   },
   {
-    class: 'KeyZ',
+    class: ['KeyZ'],
     eng: {
       shiftUp: 'z',
       shiftDown: 'Z',
@@ -482,7 +482,7 @@ const keyRow4 = [
     },
   },
   {
-    class: 'KeyX',
+    class: ['KeyX'],
     eng: {
       shiftUp: 'x',
       shiftDown: 'X',
@@ -493,7 +493,7 @@ const keyRow4 = [
     },
   },
   {
-    class: 'KeyC',
+    class: ['KeyC'],
     eng: {
       shiftUp: 'c',
       shiftDown: 'C',
@@ -504,7 +504,7 @@ const keyRow4 = [
     },
   },
   {
-    class: 'KeyV',
+    class: ['KeyV'],
     eng: {
       shiftUp: 'v',
       shiftDown: 'V',
@@ -515,7 +515,7 @@ const keyRow4 = [
     },
   },
   {
-    class: 'KeyB',
+    class: ['KeyB'],
     eng: {
       shiftUp: 'b',
       shiftDown: 'B',
@@ -526,7 +526,7 @@ const keyRow4 = [
     },
   },
   {
-    class: 'KeyN',
+    class: ['KeyN'],
     eng: {
       shiftUp: 'n',
       shiftDown: 'N',
@@ -537,7 +537,7 @@ const keyRow4 = [
     },
   },
   {
-    class: 'KeyM',
+    class: ['KeyM'],
     eng: {
       shiftUp: 'm',
       shiftDown: 'M',
@@ -548,7 +548,7 @@ const keyRow4 = [
     },
   },
   {
-    class: 'Comma',
+    class: ['Comma'],
     eng: {
       shiftUp: ',',
       shiftDown: '<',
@@ -559,7 +559,7 @@ const keyRow4 = [
     },
   },
   {
-    class: 'Period',
+    class: ['Period'],
     eng: {
       shiftUp: '.',
       shiftDown: '>',
@@ -570,7 +570,7 @@ const keyRow4 = [
     },
   },
   {
-    class: 'Slash',
+    class: ['Slash'],
     eng: {
       shiftUp: '/',
       shiftDown: '?',
@@ -581,7 +581,7 @@ const keyRow4 = [
     },
   },
   {
-    class: 'ArrowUp',
+    class: ['ArrowUp', 'special'],
     eng: {
       shiftUp: '▲',
       shiftDown: '▲',
@@ -592,7 +592,7 @@ const keyRow4 = [
     },
   },
   {
-    class: 'ShiftRight',
+    class: ['ShiftRight', 'special'],
     eng: {
       shiftUp: 'Shift',
       shiftDown: 'Shift',
@@ -606,7 +606,7 @@ const keyRow4 = [
 
 const keyRow5 = [
   {
-    class: 'ControlLeft',
+    class: ['ControlLeft', 'special'],
     eng: {
       shiftUp: 'Ctrl',
       shiftDown: 'Ctrl',
@@ -617,7 +617,7 @@ const keyRow5 = [
     },
   },
   {
-    class: 'MetaLeft',
+    class: ['MetaLeft', 'special'],
     eng: {
       shiftUp: 'Win',
       shiftDown: 'Win',
@@ -628,7 +628,7 @@ const keyRow5 = [
     },
   },
   {
-    class: 'AltLeft',
+    class: ['AltLeft', 'special'],
     eng: {
       shiftUp: 'Alt',
       shiftDown: 'Alt',
@@ -639,7 +639,7 @@ const keyRow5 = [
     },
   },
   {
-    class: 'Space',
+    class: ['Space', 'special'],
     eng: {
       shiftUp: ' ',
       shiftDown: ' ',
@@ -650,7 +650,7 @@ const keyRow5 = [
     },
   },
   {
-    class: 'AltRight',
+    class: ['AltRight', 'special'],
     eng: {
       shiftUp: 'Alt',
       shiftDown: 'Alt',
@@ -661,7 +661,7 @@ const keyRow5 = [
     },
   },
   {
-    class: 'ArrowLeft',
+    class: ['ArrowLeft', 'special'],
     eng: {
       shiftUp: '◄',
       shiftDown: '◄',
@@ -672,7 +672,7 @@ const keyRow5 = [
     },
   },
   {
-    class: 'ArrowDown',
+    class: ['ArrowDown', 'special'],
     eng: {
       shiftUp: '▼',
       shiftDown: '▼',
@@ -683,7 +683,7 @@ const keyRow5 = [
     },
   },
   {
-    class: 'ArrowRight',
+    class: ['ArrowRight', 'special'],
     eng: {
       shiftUp: '►',
       shiftDown: '►',
@@ -694,7 +694,7 @@ const keyRow5 = [
     },
   },
   {
-    class: 'ControlRight',
+    class: ['ControlRight', 'special'],
     eng: {
       shiftUp: 'Ctrl',
       shiftDown: 'Ctrl',
@@ -721,9 +721,9 @@ const createRow = keyRow => {
   for (let i = 0; i < keyRow.length; i += 1) {
     const myKey = document.createElement('div');
     myKey.className = 'key';
-    myKey.classList.add(keyRow[i].class);
+    myKey.classList.add(...keyRow[i].class);
 
-    myKey.innerHTML = `<span class="ru hide"><span class="shift up">${keyRow[i].ru.shiftUp}</span><span class="shift down">${keyRow[i].ru.shiftDown}</span></span><span class="eng"><span class="shift up">${keyRow[i].eng.shiftUp}</span><span class="shift down hide">${keyRow[i].eng.shiftDown}</span></span>`;
+    myKey.innerHTML = `<span class="ru hide"><span class="shift up hide">${keyRow[i].ru.shiftUp}</span><span class="shift down hide">${keyRow[i].ru.shiftDown}</span></span><span class="eng"><span class="shift up">${keyRow[i].eng.shiftUp}</span><span class="shift down hide">${keyRow[i].eng.shiftDown}</span></span>`;
     row.appendChild(myKey);
   }
   return row;
@@ -737,3 +737,22 @@ const createKeyboard = rowsArr => {
 };
 
 createKeyboard(rows);
+
+// ------------ KEYBOARD EVENTS ------------- //
+const keyboard = document.querySelector('.keyboard');
+const text = document.querySelector('#text');
+
+const keydownHandler = event => {
+  text.focus();
+
+  const key = keyboard.getElementsByClassName(event.code)[0];
+  key.classList.add('highlight');
+};
+
+const keyupHandler = event => {
+  const key = keyboard.getElementsByClassName(event.code)[0];
+  key.classList.remove('highlight');
+};
+
+document.addEventListener('keydown', keydownHandler);
+document.addEventListener('keyup', keyupHandler);

@@ -744,18 +744,6 @@ const text = document.querySelector('#text');
 let shiftState = 'up';
 let lang = 'eng';
 
-const keydownHandler = event => {
-  text.focus();
-
-  const key = keyboard.getElementsByClassName(event.code)[0];
-  key.classList.add('highlight');
-};
-
-const keyupHandler = event => {
-  const key = keyboard.getElementsByClassName(event.code)[0];
-  key.classList.remove('highlight');
-};
-
 function backspace(str, start, end) {
   let result = '';
   if (start === end) {
@@ -792,59 +780,133 @@ function caseToggle(currentCase) {
   } else {
     currentCase = 'up';
   }
+  console.log(currentCase);
   return currentCase;
 }
+
+function langToggle(currentCase) {
+  let keys = keyboard.querySelectorAll(`.${lang}`);
+  for (let i = 0; i < keys.length; i += 1) {
+    keys[i].classList.toggle('hide');
+    keys[i].querySelectorAll(`.${currentCase}`).classList.toggle('hide');
+  }
+  if (lang === 'eng') {
+    lang = 'ru';
+    localStorage.setItem('lang', 'ru');
+  } else {
+    lang = 'eng';
+    localStorage.setItem('lang', 'eng');
+  }
+  keys = keyboard.querySelectorAll(`.${lang}`);
+  for (let i = 0; i < keys.length; i += 1) {
+    keys[i].classList.toggle('hide');
+    keys[i].querySelectorAll(`.${currentCase}`).classList.toggle('hide');
+  }
+}
+
+if (localStorage.lang === 'ru') {
+  langToggle(shiftState);
+}
+
+function keyHandler (key, keyCode, keyValue) {
+  switch (keyCode) {
+    case 'ArrowUp':
+      text.value += '▲';
+      break;
+    case 'ArrowDown':
+      text.value += '▼';
+      break;
+    case 'ArrowLeft':
+      text.value += '◄';
+      break;
+    case 'ArrowRight':
+      text.value += '►';
+      break;
+    case 'Enter':
+      text.value += '\n';
+      break;
+    case 'Tab':
+      text.value += '    ';
+      break;
+    case 'Backspace':
+      text.value = backspace(text.value, text.selectionStart, text.selectionEnd);
+      break;
+    case 'Delete':
+      text.value = myDelete(text.value, text.selectionStart, text.selectionEnd);
+      break;
+    case 'CapsLock':
+      if (shiftState === 'up') {
+        key.classList.add('super-highlight');
+        shiftState = caseToggle(shiftState);
+      } else {
+        key.classList.remove('super-highlight');
+        shiftState = caseToggle(shiftState);
+      }
+      break;
+    case 'ShiftRight':
+      shiftState = caseToggle(shiftState);
+      break;
+    case 'ShiftLeft':
+      shiftState = caseToggle(shiftState);
+      break;
+    case 'AltLeft':
+      break;
+    case 'AltRight':
+      break;
+    case 'ControlLeft':
+      break;
+    case 'ControlRight':
+      break;
+    default:
+      text.value += keyValue;
+      break;
+  }
+}
+
+const keydownHandler = event => {
+  // console.log(event.code);
+  let key = null;
+  text.focus();
+  key = keyboard.getElementsByClassName(event.code)[0];
+  if (!key) {
+    event.preventDefault();
+    return;
+  }
+  event.preventDefault();
+  key.classList.add('highlight');
+  keyHandler(key, event.code, key.querySelector(`.${lang} .${shiftState}`).textContent);
+
+  if (event.ctrlKey && event.altKey) langToggle(shiftState);
+};
+
+const keyupHandler = event => {
+  let key = null;
+  text.focus();
+  key = keyboard.getElementsByClassName(event.code)[0];
+  if (!key) {
+    event.preventDefault();
+    return;
+  }
+  event.preventDefault();
+  key.classList.remove('highlight');
+  switch (event.code) {
+    case 'ShiftRight':
+      shiftState = caseToggle(shiftState);
+      break;
+    case 'ShiftLeft':
+      shiftState = caseToggle(shiftState);
+      break;
+    default:
+      break;
+  }
+};
 
 const mouseupHandler = event => {
   if (event.target.tagName === 'SPAN') {
     const key = event.target.closest('div');
     key.classList.remove('highlight');
     text.focus();
-
-    switch (key.classList[1]) {
-      case 'ArrowUp':
-        text.value += event.target.textContent;
-        break;
-      case 'ArrowDown':
-        text.value += event.target.textContent;
-        break;
-      case 'ArrowLeft':
-        text.value += event.target.textContent;
-        break;
-      case 'ArrowRight':
-        text.value += event.target.textContent;
-        break;
-      case 'Enter':
-        text.value += '\n';
-        break;
-      case 'Tab':
-        text.value += '    ';
-        break;
-      case 'Backspace':
-        text.value = backspace(text.value, text.selectionStart, text.selectionEnd);
-        break;
-      case 'Delete':
-        text.value = myDelete(text.value, text.selectionStart, text.selectionEnd);
-        break;
-      case 'CapsLock':
-        if (shiftState === 'up') {
-          key.classList.add('super-highlight');
-          shiftState = caseToggle(shiftState);
-        } else {
-          key.classList.remove('super-highlight');
-          shiftState = caseToggle(shiftState);
-        }
-        break;
-      case 'ShiftRight':
-        shiftState = caseToggle(shiftState);
-        break;
-      case 'ShiftLeft':
-        shiftState = caseToggle(shiftState);
-        break;
-      default:
-        text.value += event.target.textContent;
-        break;
-    }
+    keyHandler(key, key.classList[1], event.target.textContent);
   }
 };
 

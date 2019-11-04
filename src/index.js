@@ -788,7 +788,7 @@ function langToggle(currentCase) {
   let keys = keyboard.querySelectorAll(`.${lang}`);
   for (let i = 0; i < keys.length; i += 1) {
     keys[i].classList.toggle('hide');
-    keys[i].querySelectorAll(`.${currentCase}`).classList.toggle('hide');
+    keys[i].querySelector(`.${currentCase}`).classList.toggle('hide');
   }
   if (lang === 'eng') {
     lang = 'ru';
@@ -800,7 +800,7 @@ function langToggle(currentCase) {
   keys = keyboard.querySelectorAll(`.${lang}`);
   for (let i = 0; i < keys.length; i += 1) {
     keys[i].classList.toggle('hide');
-    keys[i].querySelectorAll(`.${currentCase}`).classList.toggle('hide');
+    keys[i].querySelector(`.${currentCase}`).classList.toggle('hide');
   }
 }
 
@@ -808,7 +808,7 @@ if (localStorage.lang === 'ru') {
   langToggle(shiftState);
 }
 
-function keyHandler (key, keyCode, keyValue) {
+function keyHandler(key, keyCode, keyValue) {
   switch (keyCode) {
     case 'ArrowUp':
       text.value += '▲';
@@ -857,6 +857,8 @@ function keyHandler (key, keyCode, keyValue) {
       break;
     case 'ControlRight':
       break;
+    case 'MetaLeft':
+      break;
     default:
       text.value += keyValue;
       break;
@@ -864,7 +866,6 @@ function keyHandler (key, keyCode, keyValue) {
 }
 
 const keydownHandler = event => {
-  // console.log(event.code);
   let key = null;
   text.focus();
   key = keyboard.getElementsByClassName(event.code)[0];

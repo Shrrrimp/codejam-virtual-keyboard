@@ -65,8 +65,17 @@ $dark-gradient-down: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#DB7093), to(
         border-radius: 50px;
     }
 
+    .super-highlight {
+        border: 2px solid rgb(41, 168, 241);
+    }
+
     .shift {
         display: block;
+    }
+
+    .Space span{
+        width: 100%;
+        height: 100%;
     }
 
     .hide {

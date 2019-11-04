@@ -741,6 +741,8 @@ createKeyboard(rows);
 // ------------ KEYBOARD EVENTS ------------- //
 const keyboard = document.querySelector('.keyboard');
 const text = document.querySelector('#text');
+let shiftState = 'up';
+let lang = 'eng';
 
 const keydownHandler = event => {
   text.focus();
@@ -754,5 +756,127 @@ const keyupHandler = event => {
   key.classList.remove('highlight');
 };
 
+function backspace(str, start, end) {
+  let result = '';
+  if (start === end) {
+    result = str.replace(str.slice(start - 1, start), '');
+  } else {
+    result = str.replace(str.slice(start, end), '');
+  }
+  return result;
+}
+
+function myDelete(str, start, end) {
+  let result = '';
+
+  if (start === end) {
+    if (str.length === start) {
+      return str;
+    }
+    result = str.replace(str.slice(start, start + 1), '');
+  } else {
+    result = str.replace(str.slice(start, end), '');
+  }
+  return result;
+}
+
+function caseToggle(currentCase) {
+  const keys = keyboard.querySelectorAll(`.${lang}`);
+  for (let i = 0; i < keys.length; i += 1) {
+    keys[i].querySelector('.up').classList.toggle('hide');
+    keys[i].querySelector('.down').classList.toggle('hide');
+  }
+
+  if (currentCase === 'up') {
+    currentCase = 'down';
+  } else {
+    currentCase = 'up';
+  }
+  return currentCase;
+}
+
+const mouseupHandler = event => {
+  if (event.target.tagName === 'SPAN') {
+    const key = event.target.closest('div');
+    key.classList.remove('highlight');
+    text.focus();
+
+    switch (key.classList[1]) {
+      case 'ArrowUp':
+        text.value += event.target.textContent;
+        break;
+      case 'ArrowDown':
+        text.value += event.target.textContent;
+        break;
+      case 'ArrowLeft':
+        text.value += event.target.textContent;
+        break;
+      case 'ArrowRight':
+        text.value += event.target.textContent;
+        break;
+      case 'Enter':
+        text.value += '\n';
+        break;
+      case 'Tab':
+        text.value += '    ';
+        break;
+      case 'Backspace':
+        text.value = backspace(text.value, text.selectionStart, text.selectionEnd);
+        break;
+      case 'Delete':
+        text.value = myDelete(text.value, text.selectionStart, text.selectionEnd);
+        break;
+      case 'CapsLock':
+        if (shiftState === 'up') {
+          key.classList.add('super-highlight');
+          shiftState = caseToggle(shiftState);
+        } else {
+          key.classList.remove('super-highlight');
+          shiftState = caseToggle(shiftState);
+        }
+        break;
+      case 'ShiftRight':
+        shiftState = caseToggle(shiftState);
+        break;
+      case 'ShiftLeft':
+        shiftState = caseToggle(shiftState);
+        break;
+      default:
+        text.value += event.target.textContent;
+        break;
+    }
+  }
+};
+
+const mousedownHandler = event => {
+  if (event.target.tagName === 'SPAN') {
+    text.focus();
+    const key = event.target.closest('div');
+    key.classList.add('highlight');
+
+    switch (key.classList[1]) {
+      case 'ShiftRight':
+        shiftState = caseToggle(shiftState);
+        break;
+      case 'ShiftLeft':
+        shiftState = caseToggle(shiftState);
+        break;
+      default:
+        break;
+    }
+  }
+};
+
+const mouseoutHandler = event => {
+  if (event.target.tagName === 'SPAN') {
+    const key = event.target.closest('div');
+    key.classList.remove('highlight');
+  }
+};
+
 document.addEventListener('keydown', keydownHandler);
 document.addEventListener('keyup', keyupHandler);
+
+keyboard.addEventListener('mousedown', mousedownHandler);
+keyboard.addEventListener('mouseup', mouseupHandler);
+keyboard.addEventListener('mouseout', mouseoutHandler);

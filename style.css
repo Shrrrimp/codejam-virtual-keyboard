@@ -67,8 +67,17 @@
   border-radius: 50px;
 }
 
+.keyboard .super-highlight {
+  border: 2px solid #29a8f1;
+}
+
 .keyboard .shift {
   display: block;
+}
+
+.keyboard .Space span {
+  width: 100%;
+  height: 100%;
 }
 
 .keyboard .hide {

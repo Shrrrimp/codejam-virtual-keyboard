@@ -706,6 +706,8 @@ const keyRow5 = [
   },
 ];
 
+/* global document, localStorage */
+
 const rows = [keyRow1, keyRow2, keyRow3, keyRow4, keyRow5];
 
 const myBody = document.querySelector('body');
@@ -768,20 +770,18 @@ function myDelete(str, start, end) {
   return result;
 }
 
-function caseToggle(currentCase) {
+function caseToggle() {
   const keys = keyboard.querySelectorAll(`.${lang}`);
   for (let i = 0; i < keys.length; i += 1) {
     keys[i].querySelector('.up').classList.toggle('hide');
     keys[i].querySelector('.down').classList.toggle('hide');
   }
 
-  if (currentCase === 'up') {
-    currentCase = 'down';
+  if (shiftState === 'up') {
+    shiftState = 'down';
   } else {
-    currentCase = 'up';
+    shiftState = 'up';
   }
-  console.log(currentCase);
-  return currentCase;
 }
 
 function langToggle(currentCase) {
@@ -837,17 +837,17 @@ function keyHandler(key, keyCode, keyValue) {
     case 'CapsLock':
       if (shiftState === 'up') {
         key.classList.add('super-highlight');
-        shiftState = caseToggle(shiftState);
+        caseToggle();
       } else {
         key.classList.remove('super-highlight');
-        shiftState = caseToggle(shiftState);
+        caseToggle();
       }
       break;
     case 'ShiftRight':
-      shiftState = caseToggle(shiftState);
+      caseToggle();
       break;
     case 'ShiftLeft':
-      shiftState = caseToggle(shiftState);
+      caseToggle();
       break;
     case 'AltLeft':
       break;
@@ -892,10 +892,10 @@ const keyupHandler = event => {
   key.classList.remove('highlight');
   switch (event.code) {
     case 'ShiftRight':
-      shiftState = caseToggle(shiftState);
+      caseToggle();
       break;
     case 'ShiftLeft':
-      shiftState = caseToggle(shiftState);
+      caseToggle();
       break;
     default:
       break;
@@ -919,10 +919,10 @@ const mousedownHandler = event => {
 
     switch (key.classList[1]) {
       case 'ShiftRight':
-        shiftState = caseToggle(shiftState);
+        caseToggle();
         break;
       case 'ShiftLeft':
-        shiftState = caseToggle(shiftState);
+        caseToggle();
         break;
       default:
         break;

@@ -749,7 +749,7 @@ let lang = 'eng';
 function backspace(str, start, end) {
   let result = '';
   if (start === end) {
-    result = str.replace(str.slice(start - 1, start), '');
+    result = str.slice(0, start-1) + str.slice(start+1, str.length);
   } else {
     result = str.replace(str.slice(start, end), '');
   }
@@ -763,7 +763,7 @@ function myDelete(str, start, end) {
     if (str.length === start) {
       return str;
     }
-    result = str.replace(str.slice(start, start + 1), '');
+    result = str.slice(0, start) + str.slice(start+1, str.length);
   } else {
     result = str.replace(str.slice(start, end), '');
   }

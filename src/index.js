@@ -712,15 +712,19 @@ const rows = [keyRow1, keyRow2, keyRow3, keyRow4, keyRow5];
 
 const myBody = document.querySelector('body');
 
-// create wrapper for keyboard
-myBody.innerHTML =
-  '<section class="wrapper"><textarea id="text" placeholder="Write smth!" rows="15"></textarea><section class="keyboard"></section></section>';
+myBody.innerHTML = `
+  <section class="wrapper">
+    <textarea id="text" placeholder="Write smth!" rows="15">
+    </textarea>
+    <section class="keyboard"></section>
+  </section>
+  `;
 
 const createRow = keyRow => {
   const row = document.createElement('div');
   row.classList.add('row');
 
-  for (let i = 0; i < keyRow.length; i += 1) {
+  for (let i = 0; i < keyRow.length; i++) {
     const myKey = document.createElement('div');
     myKey.className = 'key';
     myKey.classList.add(...keyRow[i].class);
@@ -731,22 +735,20 @@ const createRow = keyRow => {
   return row;
 };
 
-// creating keyboard
 const createKeyboard = rowsArr => {
-  for (let i = 0; i < rowsArr.length; i += 1) {
+  for (let i = 0; i < rowsArr.length; i++) {
     document.querySelector('.keyboard').appendChild(createRow(rowsArr[i]));
   }
 };
 
 createKeyboard(rows);
 
-// ------------ KEYBOARD EVENTS ------------- //
 const keyboard = document.querySelector('.keyboard');
 const text = document.querySelector('#text');
 let shiftState = 'up';
 let lang = 'eng';
 
-function backspace(str, start, end) {
+function backspaceKeyHandler(str, start, end) {
   let result = '';
   if (start === end) {
     result = str.slice(0, start-1) + str.slice(start+1, str.length);
@@ -756,7 +758,7 @@ function backspace(str, start, end) {
   return result;
 }
 
-function myDelete(str, start, end) {
+function deleteKeyHandler(str, start, end) {
   let result = '';
 
   if (start === end) {
@@ -772,7 +774,7 @@ function myDelete(str, start, end) {
 
 function caseToggle() {
   const keys = keyboard.querySelectorAll(`.${lang}`);
-  for (let i = 0; i < keys.length; i += 1) {
+  for (let i = 0; i < keys.length; i++) {
     keys[i].querySelector('.up').classList.toggle('hide');
     keys[i].querySelector('.down').classList.toggle('hide');
   }
@@ -786,7 +788,7 @@ function caseToggle() {
 
 function langToggle(currentCase) {
   let keys = keyboard.querySelectorAll(`.${lang}`);
-  for (let i = 0; i < keys.length; i += 1) {
+  for (let i = 0; i < keys.length; i++) {
     keys[i].classList.toggle('hide');
     keys[i].querySelector(`.${currentCase}`).classList.toggle('hide');
   }
@@ -798,7 +800,7 @@ function langToggle(currentCase) {
     localStorage.setItem('lang', 'eng');
   }
   keys = keyboard.querySelectorAll(`.${lang}`);
-  for (let i = 0; i < keys.length; i += 1) {
+  for (let i = 0; i < keys.length; i++) {
     keys[i].classList.toggle('hide');
     keys[i].querySelector(`.${currentCase}`).classList.toggle('hide');
   }
@@ -829,10 +831,10 @@ function keyHandler(key, keyCode, keyValue) {
       text.value += '    ';
       break;
     case 'Backspace':
-      text.value = backspace(text.value, text.selectionStart, text.selectionEnd);
+      text.value = backspaceKeyHandler(text.value, text.selectionStart, text.selectionEnd);
       break;
     case 'Delete':
-      text.value = myDelete(text.value, text.selectionStart, text.selectionEnd);
+      text.value = deleteKeyHandler(text.value, text.selectionStart, text.selectionEnd);
       break;
     case 'CapsLock':
       if (shiftState === 'up') {
@@ -850,13 +852,9 @@ function keyHandler(key, keyCode, keyValue) {
       caseToggle();
       break;
     case 'AltLeft':
-      break;
     case 'AltRight':
-      break;
     case 'ControlLeft':
-      break;
     case 'ControlRight':
-      break;
     case 'MetaLeft':
       break;
     default:
@@ -865,7 +863,7 @@ function keyHandler(key, keyCode, keyValue) {
   }
 }
 
-const keydownHandler = event => {
+const keyDownHandler = event => {
   let key = null;
   text.focus();
   key = keyboard.getElementsByClassName(event.code)[0];
@@ -880,7 +878,7 @@ const keydownHandler = event => {
   if (event.ctrlKey && event.altKey) langToggle(shiftState);
 };
 
-const keyupHandler = event => {
+const keyUpHandler = event => {
   let key = null;
   text.focus();
   key = keyboard.getElementsByClassName(event.code)[0];
@@ -937,8 +935,8 @@ const mouseoutHandler = event => {
   }
 };
 
-document.addEventListener('keydown', keydownHandler);
-document.addEventListener('keyup', keyupHandler);
+document.addEventListener('keydown', keyDownHandler);
+document.addEventListener('keyup', keyUpHandler);
 
 keyboard.addEventListener('mousedown', mousedownHandler);
 keyboard.addEventListener('mouseup', mouseupHandler);

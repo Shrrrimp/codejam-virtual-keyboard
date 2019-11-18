@@ -3,6 +3,7 @@
 	"plugins": ["prettier"],
 	"rules": {
 		"no-unused-vars":"warn",
-		"prefer-destructuring": ["error", {"object": true, "array": false}]
+		"prefer-destructuring": ["error", {"object": true, "array": false}],
+		"no-plusplus": 0
     }
 }

@@ -752,26 +752,26 @@ const text = document.querySelector('#text');
 let shiftState = 'up';
 let lang = 'eng';
 
-function backspaceKeyHandler(str, start, end) {
+function backspaceKeyHandler(str, startIndex, endIndex) {
   let result = '';
-  if (start === end) {
-    result = str.slice(0, start - 1) + str.slice(start + 1, str.length);
+  if (startIndex === endIndex) {
+    result = str.slice(0, startIndex - 1) + str.slice(startIndex + 1, str.length);
   } else {
-    result = str.replace(str.slice(start, end), '');
+    result = str.replace(str.slice(startIndex, endIndex), '');
   }
   return result;
 }
 
-function deleteKeyHandler(str, start, end) {
+function deleteKeyHandler(str, startIndex, endIndex) {
   let result = '';
 
-  if (start === end) {
-    if (str.length === start) {
+  if (startIndex === endIndex) {
+    if (str.length === startIndex) {
       return str;
     }
-    result = str.slice(0, start) + str.slice(start + 1, str.length);
+    result = str.slice(0, startIndex) + str.slice(startIndex + 1, str.length);
   } else {
-    result = str.replace(str.slice(start, end), '');
+    result = str.replace(str.slice(startIndex, endIndex), '');
   }
   return result;
 }

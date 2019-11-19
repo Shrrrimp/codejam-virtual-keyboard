@@ -708,18 +708,6 @@ const keyRow5 = [
 
 /* global document, localStorage */
 
-const rows = [keyRow1, keyRow2, keyRow3, keyRow4, keyRow5];
-
-const myBody = document.querySelector('body');
-
-myBody.innerHTML = `
-  <section class="wrapper">
-    <textarea id="text" placeholder="Write smth!" rows="15">
-    </textarea>
-    <section class="keyboard"></section>
-  </section>
-  `;
-
 const createRow = keyRow => {
   const row = document.createElement('div');
   row.classList.add('row');
@@ -735,13 +723,29 @@ const createRow = keyRow => {
   return row;
 };
 
-const createKeyboard = rowsArr => {
+const createKeyBoard = rowsArr => {
   for (let i = 0; i < rowsArr.length; i++) {
     document.querySelector('.keyboard').appendChild(createRow(rowsArr[i]));
   }
 };
 
-createKeyboard(rows);
+function initApp() {
+  const rows = [keyRow1, keyRow2, keyRow3, keyRow4, keyRow5];
+
+  const myBody = document.querySelector('body');
+
+  myBody.innerHTML = `
+    <section class="wrapper">
+      <textarea id="text" placeholder="Write smth!" rows="15">
+      </textarea>
+      <section class="keyboard"></section>
+    </section>
+    `;
+
+  createKeyBoard(rows);
+}
+
+initApp();
 
 const keyboard = document.querySelector('.keyboard');
 const text = document.querySelector('#text');
@@ -751,7 +755,7 @@ let lang = 'eng';
 function backspaceKeyHandler(str, start, end) {
   let result = '';
   if (start === end) {
-    result = str.slice(0, start-1) + str.slice(start+1, str.length);
+    result = str.slice(0, start - 1) + str.slice(start + 1, str.length);
   } else {
     result = str.replace(str.slice(start, end), '');
   }
@@ -765,7 +769,7 @@ function deleteKeyHandler(str, start, end) {
     if (str.length === start) {
       return str;
     }
-    result = str.slice(0, start) + str.slice(start+1, str.length);
+    result = str.slice(0, start) + str.slice(start + 1, str.length);
   } else {
     result = str.replace(str.slice(start, end), '');
   }
@@ -933,7 +937,7 @@ const mouseoutHandler = event => {
     const key = event.target.closest('div');
     key.classList.remove('highlight');
   }
-};
+}; 
 
 document.addEventListener('keydown', keyDownHandler);
 document.addEventListener('keyup', keyUpHandler);

@@ -814,6 +814,15 @@ if (localStorage.lang === 'ru') {
   langToggle(shiftState);
 }
 
+function capsLockKeyHandler(key) {
+  if (shiftState === 'up') {
+    key.classList.add('super-highlight');
+  } else {
+    key.classList.remove('super-highlight');
+  }
+  caseToggle();
+}
+
 function keyHandler(key, keyCode, keyValue) {
   switch (keyCode) {
     case 'ArrowUp':
@@ -841,13 +850,7 @@ function keyHandler(key, keyCode, keyValue) {
       text.value = deleteKeyHandler(text.value, text.selectionStart, text.selectionEnd);
       break;
     case 'CapsLock':
-      if (shiftState === 'up') {
-        key.classList.add('super-highlight');
-        caseToggle();
-      } else {
-        key.classList.remove('super-highlight');
-        caseToggle();
-      }
+      capsLockKeyHandler(key);
       break;
     case 'ShiftRight':
       caseToggle();
@@ -937,7 +940,7 @@ const mouseoutHandler = event => {
     const key = event.target.closest('div');
     key.classList.remove('highlight');
   }
-}; 
+};
 
 document.addEventListener('keydown', keyDownHandler);
 document.addEventListener('keyup', keyUpHandler);
